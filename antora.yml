@@ -1,0 +1,5 @@
+name: firmware
+title: firmware
+version: 1.0
+nav:
+- modules/ROOT/nav.adoc
