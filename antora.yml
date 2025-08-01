@@ -1,5 +1,5 @@
-name: firmware
-title: Firmware
+name: Firmware Documentation
+title: Firmware Documentation
 version: ~
 nav:
   - modules/ROOT/nav.adoc
