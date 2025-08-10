@@ -1,1 +1,1 @@
-= This part of the wiki is still under construction, for the moment all software documentation can be found in the Mission Documentation section
+= This part of the wiki is still under construction, for the moment all software documentation can be found in Mission Documentation under the Flight Software Section
