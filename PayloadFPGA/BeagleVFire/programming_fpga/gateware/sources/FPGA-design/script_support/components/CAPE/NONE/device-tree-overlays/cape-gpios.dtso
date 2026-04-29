@@ -1,0 +1,26 @@
+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+/* Copyright (c) 2020-2021 Microchip Technology Inc */
+
+/dts-v1/;
+/plugin/;
+
+&{/chosen} {
+	overlays {
+		MINIMAL-CAPE-GATEWARE = "GATEWARE_GIT_VERSION";
+	};
+};
+
+&gpio2 {
+	gpio-line-names = "P8_3",  "P8_4",  "P8_5",  "P8_6",  "P8_7",
+			  "P8_8",  "P8_9", "P8_10", "P8_11", "P8_12",
+			 "P8_13", "P8_14",      "",      "",      "",
+			      "",      "",      "",      "",      "",
+			      "",      "",      "",      "",      "",
+			      "",      "",      "",
+			      "",      "", "VIO_ENABLE", "SD_DET";
+};
+
+&mmuart4 {
+	status = "okay";
+	symlink = "bone/uart/4";
+};
