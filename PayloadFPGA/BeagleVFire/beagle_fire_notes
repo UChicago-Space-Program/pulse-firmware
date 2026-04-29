@@ -1,0 +1,59 @@
+# Beagle Fire Commands
+gpioinfo			# get info of gpio pins
+gpioset gpiochip2 10=1		# set pin 10 of gpio_out to 1
+
+# Finding & Connecting with Serial
+ls -l /dev/serial/by-id		# Find port, typically /dev/ttyACM1
+tio /dev/ttyACM1		# Connect to port. User: beagle Pass: [], Ctrl+t & q to exit
+minicom -D /dev/ttyACM1		# alt connection
+
+# Libero Commands
+libero &
+
+
+
+
+[https://docs.beagleboard.org/boards/beaglev/fire/demos-and-tutorials/gateware/exploring-gateware-design-libero.html#exploring-the-design]
+
+Steps to Update HDL Program:
+
+1. libero & Update HDL Code
+
+2. Verify and Save HDL file and press the "Build Hierarchy" button in the Design Hierarchy window to refresh
+
+3. Make new connections in CAPE, save
+
+4. Right click and select “Generate Component” for all SmartDesigns with an “i” icon
+
+5. Right-click on the CAPE and select “Export Component Description (TCL)” to gateware/sources/FPGA-design/script_support/components/CAPE/DEFAULT/
+
+6. cp gateware/work/libero/hdl/*.v gateware/sources/FPGA-design/script_support/components/CAPE/DEFAULT/HDL/
+
+7. Right-click on the HDL file in the Design Hierarchy and select Export Component Description to /gateware/sources/FPGA-design/script_support/components/CAPE/DEFAULT/blinky_config.tcl
+
+8. close Libero
+
+9. python3 build-bitstream.py ./build-options/default.yaml
+
+10. Press "User" button (press and hold the USER button while connecting your Fire to the USB port on your machine) and copy over the ./bitsteam folder
+
+11. Press "Reset" button, tio /dev/ttyACM1
+
+12. sudo /usr/share/beagleboard/gateware/change-gateware.sh ./bitstream
+
+
+
+
+------------------------------------------------
+for pin settings, look at gateware/sources/FPGA-design/script_support/components/CAPE/DEFAULT/constraints/mpfs-beagle-fire/cape.pdc
+
+The set_io options I have changed are:
+	1. P9_42, as the output pin of the program, I have added "-OUT_DRIVE 2", in order to decrease the pin drive strength to 2mA from default 8mA and thus make a clock output be more square (earlier it was over- and undershooting the two voltage levels and thus the wave was too sine-y)
+
+
+
+
+
+
+
+[https://forum.beagleboard.org/t/pass-data-to-from-fpga-verilog-and-risc-v-linux-c/37638/4]

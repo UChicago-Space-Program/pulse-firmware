@@ -1,0 +1,11 @@
+FPGA Bitstream Tests in Order:
+
+1) clock_tests/pulse_clock_test_bitstream_v1 = output just slow clock 
+2) clock_tests/pulse_clock_test_bitstream_v2 = output just fast clock with bad waveform (12.5 MHz)
+3) clock_tests/pulse_clock_test_bitstream_v3 = output just fast clock with better waveform (12.5 MHz)
+
+4) cpu_fpga_comm_tests/cpu_fpga_comm_on_off_and_switch_clk_freq = simple testing of cpu to fpga communication by simple on/off toggle of clock output
+5) cpu_fpga_comm_tests/cpu_fpga_comm_simple_switch_clk_freq = added the ability to switch output clock frequency as well as the on/off toggle
+
+6) bitstream_v1 = program now also acts as a shared memory, allowing writes from the cpu and then sending the data when the cpu sends another signal
+7) bitstream_v2 = added negated output and clock for testing
