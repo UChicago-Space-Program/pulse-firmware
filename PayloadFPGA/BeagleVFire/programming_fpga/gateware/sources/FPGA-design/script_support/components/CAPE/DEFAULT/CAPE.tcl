@@ -14,6 +14,7 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {PRESETN} -port_direction {
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {APB_SLAVE_SLAVE_PREADY} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {APB_SLAVE_SLAVE_PSLVERR} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_PIN41_2} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_PIN42} -port_direction {OUT}
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_14} -port_direction {INOUT} -port_is_pad {1}
@@ -221,9 +222,9 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"P8[46:46]" "P8_GPIO_UPPER_0:GPI
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_GPIO_UPPER_0:PCLK" "P9_GPIO_0:PCLK" "PCLK" "PWM_0:PCLK" "PWM_1:PCLK" "PWM_2:PCLK" "pulse_signal_generator_0:clk" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_GPIO_UPPER_0:PRESETN" "P9_GPIO_0:PRESETN" "PRESETN" "PWM_0:PRESETN" "PWM_1:PRESETN" "PWM_2:PRESETN" "pulse_signal_generator_0:resetn" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_14" "P9_14_BIBUF:PAD" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_14_BIBUF:D" "pulse_signal_generator_0:send_signal_n" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_14_BIBUF:D" "pulse_signal_generator_0:output_clock" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_16" "P9_16_BIBUF:PAD" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_16_BIBUF:D" "pulse_signal_generator_0:output_clock" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_16_BIBUF:D" "pulse_signal_generator_0:output_clock_n" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_GPIO_0:GPIO_10_PAD" "P9_PIN23" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_GPIO_0:GPIO_12_PAD" "P9_PIN25" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_GPIO_0:GPIO_14_PAD" "P9_PIN27" }
@@ -231,6 +232,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_GPIO_0:GPIO_17_PAD" "P9_PIN3
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_GPIO_0:GPIO_19_PAD" "P9_PIN41" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_GPIO_0:GPIO_1_PAD" "P9_PIN12" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_GPIO_0:GPIO_4_PAD" "P9_PIN15" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_PIN41_2" "pulse_signal_generator_0:send_signal_n" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_PIN42" "pulse_signal_generator_0:send_signal" }
 
 # Add bus net connections

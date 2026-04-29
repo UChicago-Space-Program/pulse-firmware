@@ -23,13 +23,14 @@ set_io -port_name {P9[14]}	\
     -pin_name C6	\
     -fixed true	\
     -io_std LVCMOS33  \
+    -OUT_DRIVE 2       \
     -DIRECTION INOUT
 
 set_io -port_name {P9[15]}	\
     -pin_name A5	    \
     -fixed true	\
     -io_std LVCMOS33  \
-    -RES_PULL Up      \
+    -RES_PULL Up      \-OUT_DRIVE 2       \
     -SCHMITT_TRIGGER ON \
     -DIRECTION INOUT
 
@@ -37,6 +38,7 @@ set_io -port_name {P9[16]}	\
     -pin_name A6	\
     -fixed true	\
     -io_std LVCMOS33  \
+    -OUT_DRIVE 2       \
     -DIRECTION INOUT
 
 set_io -port_name {P9[17]}	\
@@ -111,7 +113,7 @@ set_io -port_name {P9[28]}	\
     -DIRECTION INOUT
 
 set_io -port_name {P9[29]}	\
-    -pin_name F17	\
+    -pin_name F17	-OUT_DRIVE 2       \\
     -fixed true	\
     -io_std LVCMOS33  \
     -DIRECTION INOUT
@@ -135,6 +137,7 @@ set_io -port_name P9_41	\
     -pin_name E15	\
     -fixed true	\
     -io_std LVCMOS33  \
+    -OUT_DRIVE 2       \
     -DIRECTION OUT
 
 set_io -port_name P9_42	\

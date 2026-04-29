@@ -9,3 +9,5 @@ FPGA Bitstream Tests in Order:
 
 6) bitstream_v1 = program now also acts as a shared memory, allowing writes from the cpu and then sending the data when the cpu sends another signal
 7) bitstream_v2 = added negated output and clock for testing
+8) bitstream_v3 = added negated clock for testing, with 2 versions for low-driven outputs or not
+

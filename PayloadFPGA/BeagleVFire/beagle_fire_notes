@@ -45,7 +45,7 @@ Steps to Update HDL Program:
 
 
 ------------------------------------------------
-for pin settings, look at gateware/sources/FPGA-design/script_support/components/CAPE/DEFAULT/constraints/mpfs-beagle-fire/cape.pdc
+for pin settings, look at gateware/sources/FPGA-design/script_support/components/CAPE/DEFAULT/constraints/mpfs-beaglev-fire/cape.pdc
 
 The set_io options I have changed are:
 	1. P9_42, as the output pin of the program, I have added "-OUT_DRIVE 2", in order to decrease the pin drive strength to 2mA from default 8mA and thus make a clock output be more square (earlier it was over- and undershooting the two voltage levels and thus the wave was too sine-y)
