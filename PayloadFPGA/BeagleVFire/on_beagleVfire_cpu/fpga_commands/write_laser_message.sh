@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Turn off laser
+gpioset gpiochip2 14=0
 gpioset gpiochip2 10=0
 
 read -p "Enter your message: " message
