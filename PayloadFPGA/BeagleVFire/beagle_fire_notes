@@ -29,7 +29,7 @@ Steps to Update HDL Program:
 
 6. cp gateware/work/libero/hdl/*.v gateware/sources/FPGA-design/script_support/components/CAPE/DEFAULT/HDL/
 
-7. Right-click on the HDL file in the Design Hierarchy and select Export Component Description to /gateware/sources/FPGA-design/script_support/components/CAPE/DEFAULT/blinky_config.tcl
+7. [NOT NEEDED] Right-click on the HDL file in the Design Hierarchy and select Export Component Description to /gateware/sources/FPGA-design/script_support/components/CAPE/DEFAULT/blinky_config.tcl
 
 8. close Libero
 

@@ -6,10 +6,9 @@ input [27:0] gpio_out,
 input [27:0] gpio_enable,
 output [27:0] modified_gpio,
 output [27:0] modified_gpio_enable,
-output  send_signal, // Pin P9_42, and use P9_1 for ground
-output  send_signal_n,  // Pin P9_41
-output  output_clock,    // Pin P9_14
-output  output_clock_n    // Pin P9_16
+output  output_signal, // Pin P9_14, and use P9_1 for ground
+output  output_signal_n,  // Pin P9_16
+output  output_clock    // Pin P9_42
 );
 
 assign modified_gpio = {gpio_out[27:7], toggle_sending_signal, write_signal, gpio_out[4:0]};
@@ -55,10 +54,10 @@ end
 
 
 reg current_message_bit = 1'b0;
-assign send_signal = toggle_sending_signal ? current_message_bit : 1'b0;
-assign send_signal_n = toggle_sending_signal ? ~current_message_bit : 1'b0;
+assign output_signal = toggle_sending_signal ? (write_signal ? internal_clock : current_message_bit) : 1'b0;
+assign output_signal_n = toggle_sending_signal ? (write_signal ? ~internal_clock : ~current_message_bit) : 1'b0;
 assign output_clock = toggle_sending_signal ? internal_clock : 1'b0;
-assign output_clock_n = toggle_sending_signal ? ~internal_clock : 1'b0;
+
 
 reg [4:0] message_address_counter = 5'b00000;
 reg [2:0] message_bit_counter = 3'b000;
